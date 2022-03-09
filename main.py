@@ -3,7 +3,7 @@ import random
 
 deck_of_cards = []
 
-# Method to create a single deck of cards
+# Method to create a single deck of 52 cards
 def create_deck():
     create_suit("Spades")
     create_suit("Hearts")
@@ -23,11 +23,10 @@ def create_suit(suit):
             suit_of_cards[i-1].set_face_value("Queen")
         if suit_of_cards[i-1].get_number() == 13:
             suit_of_cards[i-1].set_face_value("King")
-    deck_of_cards.append(suit_of_cards)
+    for card in suit_of_cards:
+        deck_of_cards.append(card)
 
 
 create_deck()
 
-index1 = random.randint(0, len(deck_of_cards)-1)
-index2 = random.randint(0, len(deck_of_cards[0])-1)
-print(deck_of_cards[index1][index2])
+print(deck_of_cards[random.randint(0, len(deck_of_cards) -1)])
