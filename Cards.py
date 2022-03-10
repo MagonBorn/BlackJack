@@ -1,17 +1,19 @@
 class Card:
-    def __init__(self, number, suit):
+    def __init__(self, value, suit):
         self.suit = suit
-        self.number = number
+        self.value = value
+        # High value is for ACE cards only.
+        self.high_value = 0
         self.face_value = ""
     
     def __repr__(self):
         if self.get_face_value() == "":
-            return str(self.get_number()) + " of " + self.get_suit()
+            return str(self.get_value()) + " of " + self.get_suit()
         else:
             return self.get_face_value() + " of " + self.get_suit()        
 
-    def get_number(self):
-        return self.number
+    def get_value(self):
+        return self.value
 
     def get_suit(self):
         return self.suit
