@@ -19,6 +19,7 @@ def create_suit(suit):
         suit_of_cards.append(Cards.Card(i, suit))
         if suit_of_cards[i-1].get_value() == 1:
             suit_of_cards[i-1].set_face_value("Ace")
+            suit_of_cards[i-1].set_high_value(11)
         if suit_of_cards[i-1].get_value() == 11:
             suit_of_cards[i-1].set_face_value("Jack")
         if suit_of_cards[i-1].get_value() == 12:
