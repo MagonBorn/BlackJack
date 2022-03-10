@@ -34,6 +34,9 @@ def deal_cards(player):
     for card in range(2):
         player.player_hand += [deck_of_cards[random.randint(0, len(deck_of_cards) -1)]]
         deck_of_cards.remove(player.player_hand[card])
+    calculate_score(player)
+
+def calculate_score(player):
     for card in player.player_hand:
         player.player_score += card.value
 
