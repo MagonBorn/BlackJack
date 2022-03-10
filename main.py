@@ -17,13 +17,13 @@ def create_suit(suit):
     suit_of_cards = []
     for i in range(1, 14):
         suit_of_cards.append(Cards.Card(i, suit))
-        if suit_of_cards[i-1].get_number() == 1:
+        if suit_of_cards[i-1].get_value() == 1:
             suit_of_cards[i-1].set_face_value("Ace")
-        if suit_of_cards[i-1].get_number() == 11:
+        if suit_of_cards[i-1].get_value() == 11:
             suit_of_cards[i-1].set_face_value("Jack")
-        if suit_of_cards[i-1].get_number() == 12:
+        if suit_of_cards[i-1].get_value() == 12:
             suit_of_cards[i-1].set_face_value("Queen")
-        if suit_of_cards[i-1].get_number() == 13:
+        if suit_of_cards[i-1].get_value() == 13:
             suit_of_cards[i-1].set_face_value("King")
     for card in suit_of_cards:
         deck_of_cards.append(card)
@@ -34,7 +34,7 @@ def deal_cards(player):
         player.player_hand += [deck_of_cards[random.randint(0, len(deck_of_cards) -1)]]
         deck_of_cards.remove(player.player_hand[card])
     for card in player.player_hand:
-        player.player_score += card.number
+        player.player_score += card.value
 
 def dealers_cards():
     dealers_hand = [deck_of_cards[random.randint(0, len(deck_of_cards) -1)]]
@@ -43,6 +43,7 @@ def dealers_cards():
 
 # Beginning of the game
 print("Let's play some BlackJack\n")
+print("Rules: You play against the dealer to try and create a hand with a value as close to 21 as possible without going over (bust).")
 
 # Create a single deck of 52 playing cards
 create_deck()
