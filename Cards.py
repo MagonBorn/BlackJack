@@ -21,6 +21,9 @@ class Card:
     def get_face_value(self):
         return self.face_value
 
+    def get_high_value(self):
+        return self.high_value
+
     def set_face_value(self, face_value):
         self.face_value = face_value
 
