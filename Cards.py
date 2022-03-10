@@ -23,3 +23,6 @@ class Card:
 
     def set_face_value(self, face_value):
         self.face_value = face_value
+
+    def set_high_value(self, high_value):
+        self.high_value = high_value
