@@ -34,9 +34,9 @@ def deal_cards(player):
     for card in range(2):
         player.player_hand += [deck_of_cards[random.randint(0, len(deck_of_cards) -1)]]
         deck_of_cards.remove(player.player_hand[card])
-    calculate_score(player)
+    calculate_player_score(player)
 
-def calculate_score(player):
+def calculate_player_score(player):
     for card in player.player_hand:
         player.player_score += card.value
 
@@ -44,6 +44,12 @@ def dealers_cards():
     dealers_hand = [deck_of_cards[random.randint(0, len(deck_of_cards) -1)]]
     deck_of_cards.remove(dealers_hand[0])
     return dealers_hand
+
+def calculate_dealers_score():
+    dealers_score = 0
+    for card in dealers_hand:
+        dealers_score += card.get_value()
+    return dealers_score
 
 # Beginning of the game
 print("Let's play some BlackJack\n")
@@ -61,4 +67,4 @@ deal_cards(player_one)
 
 # Output players hand and dealers hand
 print("\n" + player_one.name + ", " + str(player_one))
-print("The dealers hand consists of the " + str(dealers_hand[0]))
+print("The dealers hand consists of the " + str(dealers_hand[0]) + " for a total of: " + str(calculate_dealers_score()))
