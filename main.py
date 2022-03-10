@@ -53,7 +53,11 @@ def calculate_dealers_score():
 
 # Beginning of the game
 print("Let's play some BlackJack\n")
-print("Rules: You play against the dealer to try and create a hand with a value as close to 21 as possible without going over (bust).")
+print("""Rules: You play against the dealer to try and create a hand with a value as close to 21 as possible without going over (bust).
+
+commands to use during play:
+hit: Take another card
+stand: End your turn\n""")
 
 # Create a single deck of 52 playing cards
 create_deck()
@@ -68,3 +72,4 @@ deal_cards(player_one)
 # Output players hand and dealers hand
 print("\n" + player_one.name + ", " + str(player_one))
 print("The dealers hand consists of the " + str(dealers_hand[0]) + " for a total of: " + str(calculate_dealers_score()))
+
