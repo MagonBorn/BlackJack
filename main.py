@@ -66,7 +66,7 @@ def check_blackjack(player):
 # Loop to control the players decision to hit or stand
 def player_turn(player):
     while player.player_score < 21:
-        decision = input("What would you like to do?\n")
+        decision = input("What would you like to do? \'hit\' or \'stand\'\n")
         if decision == "hit":
             player.player_hand += [deck_of_cards[random.randint(0, len(deck_of_cards) -1)]]
             deck_of_cards.remove(player.player_hand[-1])
