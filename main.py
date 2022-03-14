@@ -86,18 +86,20 @@ def player_turn(player):
 
 # Loop control to control dealers turn
 def dealers_turn(player):
-    while calculate_dealers_score() <= player.player_score:
+    while calculate_dealers_score() <= player.player_score and calculate_dealers_score() < 17:
         new_card = deck_of_cards[random.randint(0, len(deck_of_cards) -1)]
         dealers_hand.append(new_card)
-    if calculate_dealers_score() == player.player_score and calculate_dealers_score() == 21:
-        print("Its a tie")
+    if calculate_dealers_score() == player.player_score and calculate_dealers_score() >= 17:
         print_dealers_hand()
+        print("Its a tie")
     elif calculate_dealers_score() > player.player_score and calculate_dealers_score() <= 21:
         print_dealers_hand()
         print("Dealers Wins")
     elif calculate_dealers_score() > 21:
         print_dealers_hand()
         print("Dealers goes bust, Player wins")
+    else:
+        print(calculate_dealers_score())
 
 def print_dealers_hand():
     print("The dealers hand consists of the " + str(dealers_hand).strip("[]") + " for a total of: " + str(calculate_dealers_score()))
