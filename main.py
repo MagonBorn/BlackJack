@@ -99,7 +99,8 @@ def dealers_turn(player):
         print_dealers_hand()
         print("Dealers goes bust, Player wins")
     else:
-        print(calculate_dealers_score())
+        print_dealers_hand()
+        print("Dealer sticks at " + str(calculate_dealers_score()) + " You win")
 
 def print_dealers_hand():
     print("The dealers hand consists of the " + str(dealers_hand).strip("[]") + " for a total of: " + str(calculate_dealers_score()))
